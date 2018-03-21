@@ -65,6 +65,9 @@ def createDriverLocs():
 			cmds.pointConstraint(jnt, locFbStay, maintainOffset = True)
 			cmds.pointConstraint(locUdStay, refUdMove, maintainOffset = True)
 			cmds.pointConstraint(locFbStay, refFbMove, maintainOffset = True)
+		if (("_wrist_" in jnt) or ("_ankle_" in jnt)):
+			cmds.parentConstraint(jnt, locUdMove, maintainOffset = True)
+			cmds.parentConstraint(jnt, locFbMove, maintainOffset = True)
 		cmds.parentConstraint(twistDriver, locUdMove, maintainOffset = True)
 		cmds.parentConstraint(twistDriver, locFbMove, maintainOffset = True)
 
